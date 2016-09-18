@@ -2,7 +2,10 @@
 title: "NOAA Storm Data Research"
 author: "Rajiv Soundararajan"
 date: "18 Sep 2016"
-output: html_document
+output:
+  pdf_document: default
+  html_document:
+    keep_md: yes
 ---
 
 
@@ -179,7 +182,7 @@ damages.events$x = log(damages.events$x)
 
 # Results       
 
-### Fig.1 Assessing Damages (Economical) for each event 
+### Assessing Damages (Economical) for each event 
 
 ```{r plot_damage}
 
@@ -193,7 +196,7 @@ g.loss=g.loss+theme(axis.text.x = element_text(angle=45, hjust=1))
 print(g.loss)
 ```
 
-### Fig.2 Assessing Fatality (Health) for each event 
+### Assessing Fatality (Health) for each event 
 
 ```{r plot_fatality}
 g.fatalities=ggplot(data=fatalities.events, aes(x=event, y=x))+ggtitle("Fig.2 Count of Health Fatalities")
@@ -214,7 +217,7 @@ g.corr = ggplot(total.loss, aes(x=damage, y=fatality, label = total.loss$event))
 
 ```
 
-### Fig.3 Generating Damage($) trends over decades for each event
+### Generating Damage($) trends over decades for each event
 
 ```{r decade_trend}
 
