@@ -164,7 +164,7 @@ damages.events$x = log(damages.events$x)
 
 # Results       
 
-### Fig.1 Assessing Damages (Economical) for each event 
+### Assessing Damages (Economical) for each event 
 
 
 ```r
@@ -178,9 +178,9 @@ g.loss=g.loss+theme(axis.text.x = element_text(angle=45, hjust=1))
 print(g.loss)
 ```
 
-![](Project2_files/figure-html/plot_damage-1.png)<!-- -->
+![](figures/analysis-plot_damage-1.png)<!-- -->
 
-### Fig.2 Assessing Fatality (Health) for each event 
+### Assessing Fatality (Health) for each event 
 
 
 ```r
@@ -191,7 +191,7 @@ g.fatalities=g.fatalities+theme(axis.text.x = element_text(angle=45, hjust=1))
 print(g.fatalities)
 ```
 
-![](Project2_files/figure-html/plot_fatality-1.png)<!-- -->
+![](figures/analysis-plot_fatality-1.png)<!-- -->
 
 
 
@@ -204,7 +204,7 @@ names(total.loss) = c("event", "damage", "fatality")
 g.corr = ggplot(total.loss, aes(x=damage, y=fatality, label = total.loss$event))+geom_smooth(method="lm")+geom_text(check_overlap = TRUE, size=2, hjust=0, angle=20, nudge_x = 0.5)+geom_point(show.legend = TRUE)+ggtitle("Fig.2 Damages vs. Fatalities")
 ```
 
-### Fig.3 Generating Damage($) trends over decades for each event
+### Generating Damage($) trends over decades for each event
 
 
 ```r
@@ -216,6 +216,6 @@ g.damage.event.decade = ggplot(data = damages.events.year, aes(x=year, y=x))+ggt
 print(g.damage.event.decade)
 ```
 
-![](Project2_files/figure-html/decade_trend-1.png)<!-- -->
+![](figures/analysis-decade_trend-1.png)<!-- -->
 
 

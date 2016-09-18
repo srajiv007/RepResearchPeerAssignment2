@@ -3,9 +3,9 @@ title: "NOAA Storm Data Research"
 author: "Rajiv Soundararajan"
 date: "18 Sep 2016"
 output:
-  pdf_document: default
   html_document:
     keep_md: yes
+  pdf_document: default
 ---
 
 
@@ -184,7 +184,7 @@ damages.events$x = log(damages.events$x)
 
 ### Assessing Damages (Economical) for each event 
 
-```{r plot_damage}
+```{r plot_damage, fig.path="figures/analysis-"}
 
 library(ggplot2)
 library(gridExtra)
@@ -198,7 +198,7 @@ print(g.loss)
 
 ### Assessing Fatality (Health) for each event 
 
-```{r plot_fatality}
+```{r plot_fatality, fig.path="figures/analysis-"}
 g.fatalities=ggplot(data=fatalities.events, aes(x=event, y=x))+ggtitle("Fig.2 Count of Health Fatalities")
 g.fatalities=g.fatalities+geom_bar(stat="identity")+xlab("Event")+ylab("Total Fatalities")
 g.fatalities=g.fatalities+theme(axis.text.x = element_text(angle=45, hjust=1))
@@ -219,7 +219,7 @@ g.corr = ggplot(total.loss, aes(x=damage, y=fatality, label = total.loss$event))
 
 ### Generating Damage($) trends over decades for each event
 
-```{r decade_trend}
+```{r decade_trend, fig.path="figures/analysis-"}
 
 g.damage.event.decade = ggplot(data = damages.events.year, aes(x=year, y=x))+ggtitle("Fig.3 Damages over the decades")+
         geom_bar(stat = "identity") + facet_wrap(~event, scales = "free", shrink = TRUE) + 
